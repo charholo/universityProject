@@ -4,14 +4,15 @@ public class Student extends Person {
 
     private int age;
 
-    public Student(int id, String name, String lastName, int age){
-        super(id, name, lastName);
+    public Student(int age){
         this.age = age;
     }
 
     @Override
     public void listPerson(){
-        System.out.println("Muestra el Student : " + age);
+        System.out.println("Muestra el Student:\n " + "age:" + age + "\n cod: " + getId() + "\n Name: "+ getName());
+
+
     }
 
 }

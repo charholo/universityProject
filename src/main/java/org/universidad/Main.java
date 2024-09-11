@@ -1,21 +1,26 @@
 package org.universidad;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello and welcome!");
+        Student p1 = new Student (41);
+        p1.setId(1001);
+        p1.setName("Charles");
+        p1.setLastName("Holguín");
+        p1.listPerson();
 
-        //Student p1 = new Student (10, "Charles","Holguín", 41);
-        //p1.listPerson();
-        listPerson(new Student(5001, "Charles","Holguín", 41));
-        listPerson(new Teacher(1001, "Charholo", "TeacherPoo", 6850000));
+        Teacher t1 = new Teacher(9000000, true);
+        t1.setId(5001);
+        t1.setName("Charholo");
+        t1.setLastName("Ordoñez");
+        t1.listPerson();
+
 
         }
 
         public static void listPerson (Person p){
             p.listPerson();
+
         }
 
 
