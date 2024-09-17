@@ -13,7 +13,7 @@ public class Teacher extends Person{
 
     @Override
     public void listPerson(){
-        System.out.println("Muestra el Teacher : \n"  + " Cod: " + getId() + "\n Name: "+ getName() + "\n LastName: " + getLastName() + "\n $" +salary + "\n fullTime: " + isFullTime);
+        //System.out.println("Muestra el Teacher : \n"  + " Cod: " + getId() + "\n Name: "+ getName() + "\n LastName: " + getLastName() + "\n $" +salary + "\n fullTime: " + isFullTime);
     }
 
 }
