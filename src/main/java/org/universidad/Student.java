@@ -1,5 +1,7 @@
 package org.universidad;
 
+import java.util.ArrayList;
+
 public class Student extends Person {
 
 
@@ -9,6 +11,11 @@ public class Student extends Person {
     private int age;
     private int totalSubject;
     private Subject[] subject;
+    private ArrayList<Student> studentList;
+
+    public Student (){
+        this.studentList = new ArrayList<>();
+    }
 
     public Student(int id, String name, String lastName, int age){
 
@@ -70,15 +77,34 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Id='" + getId() + '\'' +
+        return "Id=" + getId() +
                 ", Name='" + getName() + '\'' +
                 ", lastname=" + getLastName() +
+                ", age=" + getAge() +
                 '}';
     }
 
+    //Metodo de crear estudiantes
+    public void createStudent (Student e){
+        this.studentList.add(e);
+    }
+    //Count
+    public int countStudent(){
+        return studentList.size();
+    }
 
 
-
-
-
+    //Metodo buscar estudiante
+    public Student seekStudentById(int idStudent){
+        Student studentFound = null;
+        for (Student stu: studentList ){
+            System.out.println("Conteooooooo");
+            if (stu.getId() == idStudent) {
+                System.out.println("Student found");
+                studentFound = stu;
+                return studentFound;
+            }
+        }
+        return studentFound;
+    }
 }
