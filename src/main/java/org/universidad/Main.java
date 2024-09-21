@@ -16,6 +16,7 @@ public class Main {
         int opt;
         int studentId;
         int teacherId;
+        int subjectId;
         String nameS;
         String lsNameS;
 
@@ -26,8 +27,14 @@ public class Main {
         double salaryT;
         boolean isFullTime;
 
+        int numeroSubj;
+        int idSj;
+        String nameSj;
+        String classRoom;
+
         Student arrayStudent = new Student();
         Teacher arrayTeacher = new Teacher();
+        Subject arraySubject = new Subject();
 
         /////
         do{
@@ -41,7 +48,8 @@ public class Main {
             System.out.println("5: Print all the classes and a submenu ");
             System.out.println("6: Seek Student by ID");
             System.out.println("7: Seek Teacher by ID");
-            System.out.println("8: Exit");
+            System.out.println("8: Seek Subject by ID");
+            System.out.println("9: Exit");
             System.out.print("To continue select any option: ");
             opt = leer.nextInt();
 
@@ -121,6 +129,29 @@ public class Main {
 
                 case 3:
                     System.out.println("Opcion 3");
+
+                    /////////Subject
+
+                    //Crear subajed
+                    System.out.println("¿Cuantas Subjects desea crear e Inscribir en el sistema?");
+                    numeroSubj = leer.nextInt();
+
+
+                    for (int sj = 1; sj <= numeroSubj; sj ++){
+
+                        System.out.println("Enter ID of Subject " + sj);
+                        idSj = leer.nextInt();
+                        System.out.println("Enter NAME of Subject "+ sj);
+                        nameSj = leer.next();
+                        System.out.println("Enter ClassRoom of teacher " + sj);
+                        classRoom = leer.next();
+                        arraySubject.createSubject(new Subject(idSj, nameSj, classRoom));
+                    }
+
+                    System.out.println("Numero de elementos: " + arraySubject.countSubject());
+
+
+
                     break;
 
                 case 4:
@@ -160,6 +191,21 @@ public class Main {
                     break;
 
                 case 8:
+                    //Busqueda variable Subject
+
+                    System.out.println("Seek Subject ID");
+                    subjectId = leer.nextInt();
+                    Subject sJ = arraySubject.seekSubjectById(subjectId);
+                    if (sJ == null){
+                        System.out.println("Id doesn't exist");
+                    }else{
+                        System.out.println("Subject  found: " + sJ);
+                    }
+                    break;
+
+
+
+                case 9:
                     System.out.println("Ejecucion terminada....");
                     System.exit(0);
 
@@ -173,7 +219,7 @@ public class Main {
                     break;
             }
 
-        }while(opt!=8);//fin while
+        }while(opt!=9);//fin while
 
 
 ////////
