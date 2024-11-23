@@ -17,6 +17,7 @@ public class Main {
         int studentId;
         int teacherId;
         int subjectId;
+        int subjStud;
         String nameS;
         String lsNameS;
 
@@ -28,13 +29,17 @@ public class Main {
         boolean isFullTime;
 
         int numeroSubj;
-        int idSj;
-        String nameSj;
-        String classRoom;
+        int idSj=0;
+        int totalCurso;
+        String nameSj="";
+        String classRoom="";
 
         Student arrayStudent = new Student();
         Teacher arrayTeacher = new Teacher();
         Subject arraySubject = new Subject();
+        Subject arraySubject2 = new Subject();
+
+        Subject[] c =new Subject[10];
 
         /////
         do{
@@ -53,6 +58,7 @@ public class Main {
             System.out.print("To continue select any option: ");
             opt = leer.nextInt();
 
+            Subject arraySubject3 = new Subject();
 
             switch (opt) {
 
@@ -76,6 +82,7 @@ public class Main {
                         ageS = leer.nextInt();
 
                         arrayStudent.createStudent(new Student(idS, nameS, lsNameS, ageS));
+
                     }
 
                     System.out.println(+ arrayStudent.countStudent() + " Students added successfully");
@@ -132,12 +139,12 @@ public class Main {
 
                     /////////Subject
 
-                    //Crear subajed
+                    //Crear subject
                     System.out.println("¿Cuantas Subjects desea crear e Inscribir en el sistema?");
                     numeroSubj = leer.nextInt();
 
 
-                    for (int sj = 1; sj <= numeroSubj; sj ++){
+                    for (int sj = 1; sj <= numeroSubj; sj ++){ //Recorrer las Materias
 
                         System.out.println("Enter ID of Subject " + sj);
                         idSj = leer.nextInt();
@@ -145,9 +152,33 @@ public class Main {
                         nameSj = leer.next();
                         System.out.println("Enter ClassRoom of teacher " + sj);
                         classRoom = leer.next();
-                        arraySubject.createSubject(new Subject(idSj, nameSj, classRoom));
+                        System.out.println("Enter Numero de TotalCursos " + sj);
+                        totalCurso = leer.nextInt();
+
+
+
+                        System.out.println("Enter Students Ids" + sj);
+                        subjStud = leer.nextInt();
+
+                        arraySubject2.addStudentsToSubject(new Subject(subjStud));
+
+                        for (int j=0; j<totalCurso;j ++ ){ //Recorrer los Cursos
+                            Subject curso = new Subject();
+                            c[j] = curso;
+
+                        }
+
+                        //Objeto que lleva todos los datos
+                        arraySubject.createSubject(new Subject(idSj, nameSj, classRoom, totalCurso));//Objeto Primer materia
+
+
                     }
 
+
+                    //System.out.println("  " + arraySubject2.getdisplayNames());
+
+
+                    System.out.println("Alumnos+CLASES: " + arraySubject2.countSubject2());
                     System.out.println("Numero de elementos: " + arraySubject.countSubject());
 
 
@@ -191,13 +222,13 @@ public class Main {
                     break;
 
                 case 8:
-                    //Busqueda variable Subject
+                    //Busqueda ID  Subject
 
                     System.out.println("Seek Subject ID");
                     subjectId = leer.nextInt();
                     Subject sJ = arraySubject.seekSubjectById(subjectId);
                     if (sJ == null){
-                        System.out.println("Id doesn't exist");
+                        System.out.println("Id doesn't exist validar");
                     }else{
                         System.out.println("Subject  found: " + sJ);
                     }
