@@ -48,12 +48,15 @@ public class Main {
         Subject AndroidClass = new Subject(1003, "Android class","B12",25,103);
 
         //Inicializar Estudiantes
+        arrayStudent.createStudent(new Student (1,"Charholo","Holguin",31));
+        arrayStudent.createStudent(new Student (2,"Lizfer","Rios",34));
+        arrayStudent.createStudent(new Student (3,"Cesar","Ramirez",22));
+        arrayStudent.createStudent(new Student (4,"Jaime","Arias",36));
+        arrayStudent.createStudent(new Student (5,"Luisa","Montes",19));
+        arrayStudent.createStudent(new Student (6,"Fernanda","Rios",21));
+
+
         Student student1 = new Student (1,"Charholo","Holguin",31);
-        Student student2 = new Student (2,"Lizfer","Rios",34);
-        Student student3 = new Student (3,"Cesar","Ramirez",22);
-        Student student4 = new Student (4,"Jaime","Arias",36);
-        Student student5 = new Student (5,"Luisa","Montes",19);
-        Student student6 = new Student (6,"Fernanda","Rios",21);
 
         //Inicializar Teachers
         arrayTeacher.createTeacher(new Teacher (100,"Felipe","Jiménez",4000,true));
@@ -64,13 +67,13 @@ public class Main {
 
         //Add students to class Java
         JavaClass.addStudent(student1);
-        JavaClass.addStudent(student2);
-        JavaClass.addStudent(student3);
+        //JavaClass.addStudent(student2);
+        //JavaClass.addStudent(student3);
 
         //Add students to class Python
-        pythonClass.addStudent(student4);
-        pythonClass.addStudent(student5);
-        pythonClass.addStudent(student6);
+        //pythonClass.addStudent(student4);
+        //pythonClass.addStudent(student5);
+        //pythonClass.addStudent(student6);
 
 
         //Mostrar estudiantes de las clases
@@ -79,6 +82,9 @@ public class Main {
 
         //Mostrar teachers
         arrayTeacher.displayTeachers();
+
+        //Mostrar sudents
+        arrayStudent.displayStudens();
 
 
 
@@ -145,14 +151,9 @@ public class Main {
 
                 case 2:
                     System.out.println("Opcion 2");
-
-
-                    /////////TEACHERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
-
-                    //Crear teacher y asociarlo a una Materia
+                    //Crear teacher
                     System.out.println("¿Cuantos Teacher desea crear e Inscribir en el sistema?");
                     numeroTeach = leer.nextInt();
-
 
                     for (int t = 1; t <= numeroTeach; t ++){
 
@@ -171,19 +172,12 @@ public class Main {
                     }
 
                     System.out.println("Numero de elementos: " + arrayTeacher.countTeacher());
-
-
-
-
                     break;
 
                 case 3:
                     System.out.println("Opcion 3");
 
                     /////////Subject
-
-
-
 
                     //Crear subject
                     System.out.println("¿Cuantas Subjects desea crear e Inscribir en el sistema?");
@@ -234,7 +228,8 @@ public class Main {
 
                 case 4:
                     System.out.println("Opcion 4");
-                    System.out.println("Numero de elementos: " + arrayStudent.countStudent());
+                    arrayTeacher.displayTeachers();
+                    arrayStudent.displayStudens();
                     break;
 
                 case 5:

@@ -92,6 +92,14 @@ public class Student extends Person {
         return studentList.size();
     }
 
+    public void displayStudens(){
+        System.out.println("           ");
+        System.out.println("total students : ");
+        for (Student students: studentList){
+            System.out.println(students);
+        }
+    }
+
 
     //Metodo buscar estudiante
     public Student seekStudentById(int idStudent){
