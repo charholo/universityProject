@@ -1,6 +1,7 @@
 package org.universidad;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Subject {
@@ -10,6 +11,9 @@ public class Subject {
     private int id;
     private String name;
     private String classRoom;
+    private List<Student> students;
+
+
     private int estuuu;
     private ArrayList<Subject> subjectList;
     private ArrayList<Subject> classStudentList;
@@ -20,8 +24,11 @@ public class Subject {
 
 
 
-
+    //Constructores
     public Subject (){
+        this.students = new ArrayList<>();
+
+
         this.subjectList = new ArrayList<>();
         this.classStudentList = new ArrayList<>();
 
@@ -38,6 +45,9 @@ public class Subject {
         this.name = name;
         this.classRoom = classRoom;
         this.totalCurso = totalCurso;
+        this.students = new ArrayList<>();
+
+
         this.subjectList = new ArrayList<>();
 
 
@@ -46,11 +56,32 @@ public class Subject {
 
     ///Setters Getters
 
+    //Add student to the class
+    public void addStudent(Student student){
+        students.add(student);
+        System.out.println("Adding: " + student.getName() + " to class: " + name);
+    }
+    public void displayStudents(){
+        System.out.println("           ");
+        System.out.println("Estudiantes en la clase: " + name +" are");
+        for (Student student: students){
+            System.out.println(student);
+        }
+    }
+
+
+
+
+
+
+
+
 
 
     public void setTotalCurso (int totalCurso){
         this.totalCurso = totalCurso;
     }
+
     public int getTotalCurso(){
         return totalCurso;
     }
@@ -96,7 +127,12 @@ public class Subject {
           */
         String s = "Id=" + getId() +
                 ", Name='" + getName() + '\'' +
-                ", ClassRoom=" + getClassRoom();
+                ", ClassRoom=" + getClassRoom() +
+                ", total cursos=" + getTotalCurso()
+
+
+        ;
+
                 for (Subject curso : this.subjectList){
                     s += curso.toString();
                 }
@@ -155,7 +191,7 @@ public class Subject {
 
             //System.out.println("Conteooooooo");
             if (sub.getId() == idSSubject) {
-                System.out.println("<subject> found: " + sub.getId());
+                System.out.println("<subject> seekSubjectById found: " + sub.getId());
                 subjectFound = sub;
                 return subjectFound;
             }

@@ -41,6 +41,24 @@ public class Main {
 
         Subject[] c =new Subject[10];
 
+        //Inicializar clases
+        Subject programmingJavaClass = new Subject(100, "Java programming","A12",30);
+
+        //Inicializar Estudiantes
+        Student student1 = new Student (1,"Charholo","Holguin",31);
+        Student student2 = new Student (2,"Lizfer","Rios",34);
+        Student student3 = new Student (3,"Cesar","Ramirez",22);
+        Student student4 = new Student (4,"Jaime","Arias",36);
+        Student student5 = new Student (5,"Luisa","Montes",19);
+        Student student6 = new Student (6,"Fernanda","Rios",21);
+
+        programmingJavaClass.addStudent(student1);
+        programmingJavaClass.addStudent(student2);
+        programmingJavaClass.addStudent(student3);
+
+        programmingJavaClass.displayStudents();
+
+
         /////
         do{
             //Student arrayStudent = new Student();
@@ -64,6 +82,8 @@ public class Main {
 
                 case 1:
                     System.out.println("Opcion 1");
+
+
                     //Crear Alumno y asociarlo a una Materia
                     System.out.println("¿Cuantos Alumnos desea crear e Inscribir en el sistema?");
                     numeroAlum = leer.nextInt();
@@ -139,6 +159,9 @@ public class Main {
 
                     /////////Subject
 
+
+
+
                     //Crear subject
                     System.out.println("¿Cuantas Subjects desea crear e Inscribir en el sistema?");
                     numeroSubj = leer.nextInt();
@@ -156,11 +179,11 @@ public class Main {
                         totalCurso = leer.nextInt();
 
 
-
                         System.out.println("Enter Students Ids" + sj);
                         subjStud = leer.nextInt();
 
                         arraySubject2.addStudentsToSubject(new Subject(subjStud));
+
 
                         for (int j=0; j<totalCurso;j ++ ){ //Recorrer los Cursos
                             Subject curso = new Subject();
@@ -179,6 +202,7 @@ public class Main {
 
 
                     System.out.println("Alumnos+CLASES: " + arraySubject2.countSubject2());
+                    System.out.println(arraySubject2.getId());
                     System.out.println("Numero de elementos: " + arraySubject.countSubject());
 
 
@@ -230,10 +254,9 @@ public class Main {
                     if (sJ == null){
                         System.out.println("Id doesn't exist validar");
                     }else{
-                        System.out.println("Subject  found: " + sJ);
+                        System.out.println("Subject  found MenuCase8: " + sJ);
                     }
                     break;
-
 
 
                 case 9:
