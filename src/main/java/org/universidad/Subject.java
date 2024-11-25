@@ -11,6 +11,7 @@ public class Subject {
     private int id;
     private String name;
     private String classRoom;
+    private int idTeacher;
     private List<Student> students;
 
 
@@ -39,12 +40,13 @@ public class Subject {
 
     }
 
-    public Subject(int id, String name, String classRoom, int totalCurso){
+    public Subject(int id, String name, String classRoom, int totalCurso, int idTeacher){
 
         this.id = id;
         this.name = name;
         this.classRoom = classRoom;
         this.totalCurso = totalCurso;
+        this.idTeacher = idTeacher;
         this.students = new ArrayList<>();
 
 
@@ -61,6 +63,9 @@ public class Subject {
         students.add(student);
         System.out.println("Adding: " + student.getName() + " to class: " + name);
     }
+
+
+
     public void displayStudents(){
         System.out.println("           ");
         System.out.println("Estudiantes en la clase: " + name +" are");
@@ -93,6 +98,9 @@ public class Subject {
 
     public int getId(){
         return id;
+    }
+    public int getIdTeacher(){
+        return idTeacher;
     }
 
     public void setName (String name){
@@ -128,7 +136,8 @@ public class Subject {
         String s = "Id=" + getId() +
                 ", Name='" + getName() + '\'' +
                 ", ClassRoom=" + getClassRoom() +
-                ", total cursos=" + getTotalCurso()
+                ", total cursos=" + getTotalCurso() +
+                ", Id Teacher=" + getIdTeacher()
 
 
         ;

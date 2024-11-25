@@ -42,7 +42,10 @@ public class Main {
         Subject[] c =new Subject[10];
 
         //Inicializar clases
-        Subject programmingJavaClass = new Subject(100, "Java programming","A12",30);
+        Subject JavaClass = new Subject(1000, "Java programming","A12",30,100);
+        Subject pythonClass = new Subject(1001, "Poo Python","B12",25,101);
+        Subject javaScriptClass = new Subject(1002, "Java Script class","B12",25,102);
+        Subject AndroidClass = new Subject(1003, "Android class","B12",25,103);
 
         //Inicializar Estudiantes
         Student student1 = new Student (1,"Charholo","Holguin",31);
@@ -52,11 +55,31 @@ public class Main {
         Student student5 = new Student (5,"Luisa","Montes",19);
         Student student6 = new Student (6,"Fernanda","Rios",21);
 
-        programmingJavaClass.addStudent(student1);
-        programmingJavaClass.addStudent(student2);
-        programmingJavaClass.addStudent(student3);
+        //Inicializar Teachers
+        arrayTeacher.createTeacher(new Teacher (100,"Felipe","Jiménez",4000,true));
+        arrayTeacher.createTeacher(new Teacher (101,"Santiago","Ponce de Leon",4000,false));
 
-        programmingJavaClass.displayStudents();
+        //Teacher teacher1 = new Teacher(100,"Felipe","Jiménez",4000,true);
+        //Teacher teacher2 = new Teacher(101,"Santiago","Ponce de Leon",4000,false);
+
+        //Add students to class Java
+        JavaClass.addStudent(student1);
+        JavaClass.addStudent(student2);
+        JavaClass.addStudent(student3);
+
+        //Add students to class Python
+        pythonClass.addStudent(student4);
+        pythonClass.addStudent(student5);
+        pythonClass.addStudent(student6);
+
+
+        //Mostrar estudiantes de las clases
+        JavaClass.displayStudents();
+        pythonClass.displayStudents();
+
+        //Mostrar teachers
+        arrayTeacher.displayTeachers();
+
 
 
         /////
@@ -192,7 +215,7 @@ public class Main {
                         }
 
                         //Objeto que lleva todos los datos
-                        arraySubject.createSubject(new Subject(idSj, nameSj, classRoom, totalCurso));//Objeto Primer materia
+                        arraySubject.createSubject(new Subject(idSj, nameSj, classRoom, totalCurso,100));//Objeto Primer materia
 
 
                     }

@@ -73,6 +73,14 @@ public class Teacher extends Person{
         return teacherList.size();
     }
 
+    public void displayTeachers(){
+        System.out.println("           ");
+        System.out.println("total teachers : ");
+        for (Teacher teacher: teacherList){
+            System.out.println(teacher);
+        }
+    }
+
     //Metodo buscar teacher
     public Teacher seekTeacherById(int idTeacher){
         Teacher teacherFound = null;
