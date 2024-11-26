@@ -15,13 +15,12 @@ public class Subject {
     private List<Student> students;
 
 
-    private int estuuu;
     private ArrayList<Subject> subjectList;
     private ArrayList<Subject> classStudentList;
     private ArrayList<Teacher> classTeacherList;
 
     private int totalCurso;
-    private Subject[] curso;
+
 
 
 
@@ -33,9 +32,6 @@ public class Subject {
         this.subjectList = new ArrayList<>();
         this.classStudentList = new ArrayList<>();
 
-    }
-    public Subject (int estuuu){
-        this.estuuu= estuuu;
     }
 
     public Subject(int id, String name, String classRoom, int totalCurso, int idTeacher){
@@ -71,16 +67,6 @@ public class Subject {
             System.out.println(student);
         }
     }
-
-
-
-
-
-
-
-
-
-
     public void setTotalCurso (int totalCurso){
         this.totalCurso = totalCurso;
     }
@@ -121,24 +107,13 @@ public class Subject {
         return classStudentList;
     }
 
-
-
     @Override
     public String toString() {
-        /*return "Id=" + getId() +
-                ", Name='" + getName() + '\'' +
-                ", ClassRoom=" + getClassRoom() +
-                ", SubStudent=" + subjectList +
-                '}';
-          */
         String s = "Id=" + getId() +
                 ", Name='" + getName() + '\'' +
                 ", ClassRoom=" + getClassRoom() +
                 ", total cursos=" + getTotalCurso() +
-                ", Id Teacher=" + getIdTeacher()
-
-
-        ;
+                ", Id Teacher=" + getIdTeacher();
 
                 for (Subject curso : this.subjectList){
                     s += curso.toString();
@@ -167,20 +142,11 @@ public class Subject {
         this.classStudentList.add(csl);
     }
 
-    //Recibe un arreglo de todos los cursos del estudiante
-    public void agregarCurso (Subject[] cs){
-        //Copia toda la información del Subject [] al arreglo Curso de nuestra clase Subject
-        System.arraycopy(cs, 0,this.curso, 0, cs.length);
-
-    }
-
     public String mostro (){
         String msn = "";
         for (int i = 0; i < classStudentList.size();i++){
             System.out.println(classStudentList.get(i));
             msn = "EncontroooCH";
-
-
         }
 
         System.out. println(msn);
@@ -189,7 +155,7 @@ public class Subject {
 
     public void displaySubject(){
         System.out.println("           ");
-        System.out.println("total Subjects : ");
+        System.out.println("Available Subjects: ");
         for (Subject subjects: subjectList){
             System.out.println(subjects);
         }
@@ -199,16 +165,10 @@ public class Subject {
     public Subject seekSubjectById(int idSSubject){
         Subject subjectFound = null;
         for (Subject sub: subjectList ){
-            //System.out.println("Mostrar lista ch: " + sub);
-            //System.out.println("Mostrar lista ch2: " + subjectList);
-            //System.out.println("Iteración del sub id : " + sub.getId() );
-
-            //System.out.println("Conteooooooo");
             if (sub.getId() == idSSubject) {
                 System.out.println("<subject> seekSubjectById found: " + sub.getId());
                 subjectFound = sub;
                 return subjectFound;
-
             }
         }
         return subjectFound;

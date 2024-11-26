@@ -70,10 +70,6 @@ public class Student extends Person {
         System.out.println("Muestra el Student:\n " + "age:" + age + "\n cod: " + getId() + "\n Name: "+ getName() +"\n lastName: " + getLastName() );
     }
 
-    public void addSubject (Subject[] s){
-        System.arraycopy(s , 0 , this.subject, 0, s.length);
-    }
-
     @Override
     public String toString() {
         return "Id=" + getId() +

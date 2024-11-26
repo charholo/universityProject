@@ -1,10 +1,6 @@
 package org.universidad;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
-
 
 public class Main {
     public static void main(String[] args) {
@@ -14,6 +10,7 @@ public class Main {
         int idS;
         int ageS;
         int opt;
+        int idAsociateS;
         int studentId;
         int teacherId;
         int subjectId;
@@ -42,7 +39,7 @@ public class Main {
         Subject[] c =new Subject[10];
 
         //Inicializar clases
-        Subject JavaClass = new Subject(1000, "Java programming","A12",30,100);
+        //Subject JavaClass = new Subject(1000, "Java programming","A12",30,100);
         //Subject pythonClass = new Subject(1001, "Poo Python","B12",25,101);
         //Subject javaScriptClass = new Subject(1002, "Java Script class","B12",25,102);
         //Subject AndroidClass = new Subject(1003, "Android class","B12",25,103);
@@ -72,7 +69,7 @@ public class Main {
         //Teacher teacher2 = new Teacher(101,"Santiago","Ponce de Leon",4000,false);
 
         //Add students to class Java
-        JavaClass.addStudent(student1);
+        //JavaClass.addStudent(student1);
         //JavaClass.addStudent(student2);
         //JavaClass.addStudent(student3);
 
@@ -83,7 +80,7 @@ public class Main {
 
 
         //Mostrar estudiantes de las clases
-        JavaClass.displayStudents();
+        //JavaClass.displayStudents();
         //pythonClass.displayStudents();
 
         //Mostrar teachers
@@ -116,11 +113,11 @@ public class Main {
             switch (opt) {
 
                 case 1:
-                    System.out.println("Opcion 1");
+                    System.out.println("Option 1");
 
 
                     //Crear Alumno y asociarlo a una Materia
-                    System.out.println("¿Cuantos Alumnos desea crear e Inscribir en el sistema?");
+                    System.out.println("How many students do you need register?");
                     numeroAlum = leer.nextInt();
 
 
@@ -137,33 +134,32 @@ public class Main {
                         ageS = leer.nextInt();
 
                         arrayStudent.createStudent(new Student(idS, nameS, lsNameS, ageS));
-                        JavaClass.addStudent(new Student(idS, nameS, lsNameS, ageS));
-                        System.out.println("Este es el objeto para subect para asociarle" + arraySubject.seekSubjectById(1002));
-                        arraySubject.seekSubjectById(1002).addStudent(new Student(idS, nameS, lsNameS, ageS));
+                        //JavaClass.addStudent(new Student(idS, nameS, lsNameS, ageS));
+
+                        //Crrar bucle para asociar studiantes
+                        //System.out.println("Este es el objeto para subect para asociarle" + arraySubject.seekSubjectById(1002));
+
+                        //Show all subjects
+                        arraySubject.displaySubject();
+                        System.out.println(" ");
+                        System.out.println("Select one available subject id to asociate Student " + i);
+                        idAsociateS = leer.nextInt();
+                        arraySubject.seekSubjectById(idAsociateS).addStudent(new Student(idS, nameS, lsNameS, ageS));
+
+                        System.out.println("Process to asociate was correct " + i);
+                        arraySubject.seekSubjectById(idAsociateS).displayStudents();
 
 
                        //pilas aca //pythonClass.addStudent(new Student(idS, nameS, lsNameS, ageS));
 
 
                     }
-
+                    System.out.println(" ");
                     System.out.println(+ arrayStudent.countStudent() + " Students added successfully");
-
-                    //System.out.println("Numero de elementos: " + arrayStudent.countStudent());
-
-                    //Busqueda variable Student
-                    /*
-                    Student eS = arrayStudent.seekStudentById(19);
-                    if (eS == null){
-                        System.out.println("Id doesn't exist");
-                    }else{
-                        System.out.println("Student found: " + eS);
-                    }
-                    */
                     break;
 
                 case 2:
-                    System.out.println("Opcion 2");
+                    System.out.println("Option 2");
                     //Crear teacher
                     System.out.println("¿Cuantos Teacher desea crear e Inscribir en el sistema?");
                     numeroTeach = leer.nextInt();
@@ -188,7 +184,7 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("Opcion 3");
+                    System.out.println("Option 3");
 
                     /////////Subject
 
@@ -212,7 +208,7 @@ public class Main {
                         System.out.println("Enter Students Ids" + sj);
                         subjStud = leer.nextInt();
 
-                        arraySubject2.addStudentsToSubject(new Subject(subjStud));
+                        //arraySubject2.addStudentsToSubject(new Subject(subjStud));
 
 
                         for (int j=0; j<totalCurso;j ++ ){ //Recorrer los Cursos
@@ -240,7 +236,7 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("Opcion 4");
+                    System.out.println("Option 4");
                     arrayTeacher.displayTeachers();
                     arrayStudent.displayStudens();
                     arraySubject.displaySubject();
@@ -249,7 +245,7 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("Opcion 5");
+                    System.out.println("Option 5");
                     System.out.println("Seek Alumno ID de alumno");
                     studentId = leer.nextInt();
                     Student eS = arrayStudent.seekStudentById(studentId);
@@ -262,7 +258,7 @@ public class Main {
                     break;
 
                 case 6:
-                    System.out.println("Opcion 6");
+                    System.out.println("Option 6");
 
                     break;
 
@@ -286,7 +282,7 @@ public class Main {
                     subjectId = leer.nextInt();
                     Subject sJ = arraySubject.seekSubjectById(subjectId);
                     if (sJ == null){
-                        System.out.println("Id doesn't exist validar");
+                        System.out.println("Id doesn't exist ");
                     }else{
                         System.out.println("Subject  found MenuCase8: " + sJ);
                     }
@@ -294,33 +290,19 @@ public class Main {
 
 
                 case 9:
-                    System.out.println("Ejecucion terminada....");
+                    System.out.println("Program Finish!!!");
                     System.exit(0);
-
                     break;
 
                 default:
-                    System.out.println("Opcion no disponible:/");
-                    System.out.println("¿Desea volver al menu?");
-                    System.out.println("0 = si o 7 = no");
+                    System.out.println("Unavailable option!");
+                    System.out.println("¿Return to menu?");
+                    System.out.println("0 = Yes or 7 = No");
                     opt = leer.nextInt();
                     break;
             }
-
-        }while(opt!=9);//fin while
-
-
-////////
-
-
-
-
-
-
-
-
-
-
+        }
+        while(opt!=9);
     }
 
 }
