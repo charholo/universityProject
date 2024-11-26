@@ -43,9 +43,15 @@ public class Main {
 
         //Inicializar clases
         Subject JavaClass = new Subject(1000, "Java programming","A12",30,100);
-        Subject pythonClass = new Subject(1001, "Poo Python","B12",25,101);
-        Subject javaScriptClass = new Subject(1002, "Java Script class","B12",25,102);
-        Subject AndroidClass = new Subject(1003, "Android class","B12",25,103);
+        //Subject pythonClass = new Subject(1001, "Poo Python","B12",25,101);
+        //Subject javaScriptClass = new Subject(1002, "Java Script class","B12",25,102);
+        //Subject AndroidClass = new Subject(1003, "Android class","B12",25,103);
+
+        arraySubject.createSubject(new Subject(1000, "Java programming","A12",30,100));
+        arraySubject.createSubject(new Subject(1001, "Poo Python","B12",25,101));
+        arraySubject.createSubject(new Subject(1002, "Java Script class","B12",25,102));
+        arraySubject.createSubject(new Subject(1003, "Android class","B12",25,103));
+
 
         //Inicializar Estudiantes
         arrayStudent.createStudent(new Student (1,"Charholo","Holguin",31));
@@ -78,7 +84,7 @@ public class Main {
 
         //Mostrar estudiantes de las clases
         JavaClass.displayStudents();
-        pythonClass.displayStudents();
+        //pythonClass.displayStudents();
 
         //Mostrar teachers
         arrayTeacher.displayTeachers();
@@ -96,7 +102,7 @@ public class Main {
             System.out.println("1: Create a new student and add it to an existing class");
             System.out.println("2: Create a new Teacher and add it to an existing class");
             System.out.println("3: Create a new class and add an existing teacher ");
-            System.out.println("4: Print all the professors with its data");
+            System.out.println("4: Print all the professors and Students with its data");
             System.out.println("5: Print all the classes and a submenu ");
             System.out.println("6: Seek Student by ID");
             System.out.println("7: Seek Teacher by ID");
@@ -131,6 +137,13 @@ public class Main {
                         ageS = leer.nextInt();
 
                         arrayStudent.createStudent(new Student(idS, nameS, lsNameS, ageS));
+                        JavaClass.addStudent(new Student(idS, nameS, lsNameS, ageS));
+                        System.out.println("Este es el objeto para subect para asociarle" + arraySubject.seekSubjectById(1002));
+                        arraySubject.seekSubjectById(1002).addStudent(new Student(idS, nameS, lsNameS, ageS));
+
+
+                       //pilas aca //pythonClass.addStudent(new Student(idS, nameS, lsNameS, ageS));
+
 
                     }
 
@@ -230,6 +243,9 @@ public class Main {
                     System.out.println("Opcion 4");
                     arrayTeacher.displayTeachers();
                     arrayStudent.displayStudens();
+                    arraySubject.displaySubject();
+                    arraySubject.seekSubjectById(1002).displayStudents();
+                    //pythonClass.displayStudents();
                     break;
 
                 case 5:

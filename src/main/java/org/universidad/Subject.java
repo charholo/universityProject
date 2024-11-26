@@ -36,8 +36,6 @@ public class Subject {
     }
     public Subject (int estuuu){
         this.estuuu= estuuu;
-
-
     }
 
     public Subject(int id, String name, String classRoom, int totalCurso, int idTeacher){
@@ -189,6 +187,13 @@ public class Subject {
         return msn;
     }
 
+    public void displaySubject(){
+        System.out.println("           ");
+        System.out.println("total Subjects : ");
+        for (Subject subjects: subjectList){
+            System.out.println(subjects);
+        }
+    }
 
     //Metodo buscar subject
     public Subject seekSubjectById(int idSSubject){
@@ -203,9 +208,9 @@ public class Subject {
                 System.out.println("<subject> seekSubjectById found: " + sub.getId());
                 subjectFound = sub;
                 return subjectFound;
+
             }
         }
         return subjectFound;
     }
-
 }
