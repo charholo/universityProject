@@ -62,7 +62,7 @@ public class Subject {
 
     public void displayStudents(){
         System.out.println("           ");
-        System.out.println("Estudiantes en la clase: " + name +" are");
+        System.out.println("Subject: " + name + " With id: " + getId() + " Room: "+getClassRoom() + " Ncourse: " + getTotalCurso() + " Teacher: " + getIdTeacher() + " has students: " );
         for (Student student: students){
             System.out.println(student);
         }
@@ -155,18 +155,27 @@ public class Subject {
 
     public void displaySubject(){
         System.out.println("           ");
-        System.out.println("Available Subjects: ");
+        //System.out.println("Available Subjects: ");
         for (Subject subjects: subjectList){
             System.out.println(subjects);
         }
     }
+
+    public void displayIdsSubject(){
+        System.out.println("           ");
+        System.out.println("Ids Subjects: ");
+        for (Subject subjects: subjectList){
+            System.out.println(subjects.getId());
+        }
+    }
+
 
     //Metodo buscar subject
     public Subject seekSubjectById(int idSSubject){
         Subject subjectFound = null;
         for (Subject sub: subjectList ){
             if (sub.getId() == idSSubject) {
-                System.out.println("<subject> seekSubjectById found: " + sub.getId());
+                //System.out.println("<subject> seekSubjectById found: " + sub.getId());
                 subjectFound = sub;
                 return subjectFound;
             }

@@ -14,6 +14,7 @@ public class Main {
         int studentId;
         int teacherId;
         int subjectId;
+        int showSubject;
         int subjStud;
         String nameS;
         String lsNameS;
@@ -239,9 +240,27 @@ public class Main {
                     System.out.println("Option 4");
                     arrayTeacher.displayTeachers();
                     arrayStudent.displayStudens();
+
+
+                    //point B
                     arraySubject.displaySubject();
-                    arraySubject.seekSubjectById(1002).displayStudents();
-                    //pythonClass.displayStudents();
+                    System.out.println(" ");
+                    System.out.println("Please enter id of Subject to display information of class");
+                    showSubject = leer.nextInt();
+
+                    if (arraySubject.seekSubjectById(showSubject) == null){
+                        System.out.println("Materia no encontrada");
+                    }else{
+                        arraySubject.seekSubjectById(showSubject).displayStudents();
+                    }
+
+
+
+
+
+
+
+
                     break;
 
                 case 5:
