@@ -1,13 +1,13 @@
 package org.universidad;
 
 import java.util.Scanner;
-
+import java.util.Random;
 public class Main {
     public static void main(String[] args) {
 
         Scanner leer = new Scanner(System.in);
         int numeroAlum;
-        int idS;
+        //int idS;
         int ageS;
         int opt;
         int idAsociateS;
@@ -20,14 +20,14 @@ public class Main {
         String lsNameS;
 
         int numeroTeach;
-        int idT;
+        //int idT;
         String nameT;
         String lsNameT;
         double salaryT;
         boolean isFullTime;
 
         int numeroSubj;
-        int idSj=0;
+        //int idSj=0;
         int totalCurso;
         String nameSj="";
         String classRoom="";
@@ -63,8 +63,12 @@ public class Main {
         Student student1 = new Student (1,"Charholo","Holguin",31);
 
         //Inicializar Teachers
-        arrayTeacher.createTeacher(new Teacher (100,"Felipe","Jiménez",4000,true));
-        arrayTeacher.createTeacher(new Teacher (101,"Santiago","Ponce de Leon",4000,false));
+        arrayTeacher.createTeacher(new Teacher (10,"Felipe","Jiménez",4000,true));
+        arrayTeacher.createTeacher(new Teacher (11,"Santiago","Ponce de Leon",3800,false));
+
+
+
+
 
         //Teacher teacher1 = new Teacher(100,"Felipe","Jiménez",4000,true);
         //Teacher teacher2 = new Teacher(101,"Santiago","Ponce de Leon",4000,false);
@@ -125,8 +129,12 @@ public class Main {
                     for (int i = 1; i <= numeroAlum; i ++){
 
                         System.out.println("\n");
-                        System.out.println("Enter ID of student " + i);
-                        idS = leer.nextInt();
+                        //System.out.println("Enter ID of student " + i);
+                        //idS = leer.nextInt();
+
+                        Random numAleatorioS = new Random();
+                        int idS = numAleatorioS.nextInt(700-500+1) + 500;
+                        System.out.println(idS + " Automatical ID" + " to Student "  + i);
                         System.out.println("Enter NAME of student "+ i);
                         nameS = leer.next();
                         System.out.println("Enter LASTNAME of student " + i);
@@ -167,8 +175,11 @@ public class Main {
 
                     for (int t = 1; t <= numeroTeach; t ++){
 
-                        System.out.println("Enter ID of teacher " + t);
-                        idT = leer.nextInt();
+                        //System.out.println("Enter ID of teacher " + t);
+                        //idT = leer.nextInt();
+                        Random numAleatorio = new Random();
+                        int idT = numAleatorio.nextInt(200-100+1) + 200;
+                        System.out.println(idT + " Automatical ID" + " to teacher "  + t);
                         System.out.println("Enter NAME of teacher "+ t);
                         nameT = leer.next();
                         System.out.println("Enter LASTNAME of teacher " + t);
@@ -196,8 +207,12 @@ public class Main {
 
                     for (int sj = 1; sj <= numeroSubj; sj ++){ //Recorrer las Materias
 
-                        System.out.println("Enter ID of Subject " + sj);
-                        idSj = leer.nextInt();
+                        //System.out.println("Enter ID of Subject " + sj);
+                        //idSj = leer.nextInt();
+
+                        Random numAleatorioSb = new Random();
+                        int idSj = numAleatorioSb.nextInt(900-800+1) + 800;
+                        System.out.println(idSj + " Automatical ID" + " to Subject "  + sj);
                         System.out.println("Enter NAME of Subject "+ sj);
                         nameSj = leer.next();
                         System.out.println("Enter ClassRoom of teacher " + sj);

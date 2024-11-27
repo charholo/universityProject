@@ -1,6 +1,7 @@
 package org.universidad;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Teacher extends Person{
 
@@ -26,7 +27,7 @@ public class Teacher extends Person{
 
     ///Setters Getters
 
-    public void setId (int id){
+    public void setTeacherId (int id){
         this.id = id;
     }
     public int getId(){
