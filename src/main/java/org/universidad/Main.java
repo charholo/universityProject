@@ -7,7 +7,7 @@ public class Main {
 
         Scanner leer = new Scanner(System.in);
         int numeroAlum;
-        //int idS;
+        int idTeacherAssociate;
         int ageS;
         int opt;
         int idAsociateS;
@@ -189,6 +189,7 @@ public class Main {
                         System.out.println("¿The Teacher working full time? Enter value '1' to TRUE or value '2' to FALSE " + t);
                         isFullTime = leer.nextInt();
 
+
                         Teacher calcSalary = new Teacher();
 
                         double finalSalary = calcSalary.calcSalaryteacher(salaryT,isFullTime);
@@ -224,27 +225,23 @@ public class Main {
                         totalCurso = leer.nextInt();
 
 
-                        System.out.println("Enter Students Ids" + sj);
-                        subjStud = leer.nextInt();
+                        do {
+                            System.out.println("Enter correct id teacher to asociate");
+                            idTeacherAssociate = leer.nextInt();
+                        }while (arrayTeacher.seekTeacherById(idTeacherAssociate) == null);
 
-                        //arraySubject2.addStudentsToSubject(new Subject(subjStud));
 
+                        //System.out.println("Enter Students Ids" + sj);
+                        //subjStud = leer.nextInt();
 
-                        for (int j=0; j<totalCurso;j ++ ){ //Recorrer los Cursos
-                            Subject curso = new Subject();
-                            c[j] = curso;
-
-                        }
 
                         //Objeto que lleva todos los datos
-                        arraySubject.createSubject(new Subject(idSj, nameSj, classRoom, totalCurso,100));//Objeto Primer materia
+                        arraySubject.createSubject(new Subject(idSj, nameSj, classRoom, totalCurso,idTeacherAssociate));//Objeto Primer materia
+
+                        //arraySubject.seekSubjectById(idAsociateS).addStudent(new Student(idS, nameS, lsNameS, ageS));
 
 
                     }
-
-
-                    //System.out.println("  " + arraySubject2.getdisplayNames());
-
 
                     System.out.println("Alumnos+CLASES: " + arraySubject2.countSubject2());
                     System.out.println(arraySubject2.getId());

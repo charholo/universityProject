@@ -88,7 +88,7 @@ public class Teacher extends Person{
     public Teacher seekTeacherById(int idTeacher){
         Teacher teacherFound = null;
         for (Teacher tech: teacherList ){
-            System.out.println("Conteooooooo");
+            //System.out.println("Conteooooooo");
             if (tech.getId() == idTeacher) {
                 System.out.println("Teacher found");
                 teacherFound = tech;
