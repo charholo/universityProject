@@ -24,7 +24,7 @@ public class Main {
         String nameT;
         String lsNameT;
         double salaryT;
-        boolean isFullTime;
+        int isFullTime;
 
         int numeroSubj;
         //int idSj=0;
@@ -63,8 +63,8 @@ public class Main {
         Student student1 = new Student (1,"Charholo","Holguin",31);
 
         //Inicializar Teachers
-        arrayTeacher.createTeacher(new Teacher (10,"Felipe","Jiménez",4000,true));
-        arrayTeacher.createTeacher(new Teacher (11,"Santiago","Ponce de Leon",3800,false));
+        arrayTeacher.createTeacher(new Teacher (10,"Felipe","Jiménez",4000,1));
+        arrayTeacher.createTeacher(new Teacher (11,"Santiago","Ponce de Leon",3800,0));
 
 
 
@@ -186,10 +186,13 @@ public class Main {
                         lsNameT = leer.next();
                         System.out.println("Enter SALARY of teacher" + t);
                         salaryT = leer.nextDouble();
-                        System.out.println("Enter iSFullTime of teacher" + t);
-                        isFullTime = leer.nextBoolean();
+                        System.out.println("¿The Teacher working full time? Enter value '1' to TRUE or value '2' to FALSE " + t);
+                        isFullTime = leer.nextInt();
 
-                        arrayTeacher.createTeacher(new Teacher(idT, nameT, lsNameT, salaryT,isFullTime));
+                        Teacher calcSalary = new Teacher();
+
+                        double finalSalary = calcSalary.calcSalaryteacher(salaryT,isFullTime);
+                        arrayTeacher.createTeacher(new Teacher(idT, nameT, lsNameT, finalSalary ,isFullTime));
                     }
 
                     System.out.println("Numero de elementos: " + arrayTeacher.countTeacher());

@@ -1,5 +1,7 @@
 package org.universidad;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -9,14 +11,14 @@ public class Teacher extends Person{
     private String name;
     private String lastName;
     private double salary;
-    private boolean isFullTime;
+    private int isFullTime;
     private ArrayList<Teacher> teacherList;
 
     public Teacher (){
         this.teacherList = new ArrayList<>();
     }
 
-    public Teacher(int id, String name, String lastName, double salary, boolean isFullTime){
+    public Teacher(int id, String name, String lastName, double salary, int isFullTime){
 
         this.id = id;
         this.name = name;
@@ -55,11 +57,11 @@ public class Teacher extends Person{
     public double getSalary(){
         return salary;
     }
-    public void setIsFullTine(boolean isFullTime){
+    public void setIsFullTine(int isFullTime){
         this.isFullTime = isFullTime;
     }
 
-    public boolean getIsFullTime(){
+    public int getIsFullTime(){
         return isFullTime;
     }
 
@@ -94,6 +96,16 @@ public class Teacher extends Person{
             }
         }
         return teacherFound;
+    }
+
+    public double calcSalaryteacher (double salary, int isFullTime){
+        double finalSalary;
+        if (isFullTime == 1){
+            return finalSalary = (salary * 2);
+        } else if (isFullTime == 2) {
+            return finalSalary = (salary * 1);
+        }else
+            return 0;
     }
 
     @Override
