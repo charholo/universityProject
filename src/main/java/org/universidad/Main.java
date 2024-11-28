@@ -18,6 +18,7 @@ public class Main {
         int subjStud;
         String nameS;
         String lsNameS;
+        int StudentID, SubjectID;
 
         int numeroTeach;
         //int idT;
@@ -292,12 +293,28 @@ public class Main {
                         System.out.println("Id doesn't exist");
                     }else{
                         System.out.println("Student found: " + eS);
+
+                        System.out.println(eS.getId());
                     }
 
                     break;
 
                 case 6:
                     System.out.println("Option 6");
+
+                    //Subject sss = arraySubject.displayIdsSubject();
+
+                    System.out.println("SubjectID");
+                    SubjectID = leer.nextInt();
+
+                    System.out.println("StudentID");
+                    StudentID = leer.nextInt();
+                   // necesito recorrer el array de subjects para hacer la busqueda materia por materia
+                    arraySubject.seekSubjectById(SubjectID).displayStudentsCH(StudentID);
+
+
+
+
 
                     break;
 
