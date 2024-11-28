@@ -235,11 +235,16 @@ public class Main {
                         //subjStud = leer.nextInt();
 
 
-                        //Objeto que lleva todos los datos
-                        arraySubject.createSubject(new Subject(idSj, nameSj, classRoom, totalCurso,idTeacherAssociate));//Objeto Primer materia
+                        //Objeto que lleva todos los datos Subject
+                        arraySubject.createSubject(new Subject(idSj, nameSj, classRoom, totalCurso,idTeacherAssociate));
 
-                        //arraySubject.seekSubjectById(idAsociateS).addStudent(new Student(idS, nameS, lsNameS, ageS));
-
+                        do {
+                            //Asociate student with Subject
+                            System.out.println("Enter correct Student to add in subject: " + nameSj);
+                            studentId = leer.nextInt();
+                        }while (arrayStudent.seekStudentById(studentId) == null);
+                        Student eS = arrayStudent.seekStudentById(studentId);
+                        arraySubject.seekSubjectById(idSj).addStudent(eS);
 
                     }
 

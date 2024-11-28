@@ -101,9 +101,9 @@ public class Student extends Person {
     public Student seekStudentById(int idStudent){
         Student studentFound = null;
         for (Student stu: studentList ){
-            System.out.println("Conteooooooo");
+            //System.out.println("Conteooooooo");
             if (stu.getId() == idStudent) {
-                System.out.println("Student found");
+                //System.out.println("Student found");
                 studentFound = stu;
                 return studentFound;
             }
