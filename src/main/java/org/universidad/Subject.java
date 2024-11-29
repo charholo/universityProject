@@ -74,7 +74,8 @@ public class Subject {
         System.out.println("           ");
          for (Student student: students){
             if (student.getId() == searchById){
-                System.out.println("Subject: " + name + " With id: " + getId() + " Room: "+getClassRoom() + " Ncourse: " + getTotalCurso() + " Teacher: " + getIdTeacher() + " has students: " );
+                System.out.println("Id: " + id + "Subject: " + name + " With id: " + getId() + " Room: "+getClassRoom() + " Ncourse: " + getTotalCurso() + " Teacher: " + getIdTeacher() + " has students: " );
+                System.out.println(" ");
                 System.out.println(student);
             }
         }
@@ -174,6 +175,15 @@ public class Subject {
         //System.out.println("Available Subjects: ");
         for (Subject subjects: subjectList){
             System.out.println(subjects);
+        }
+    }
+    public void mostrarIds(int StudentID){
+        System.out.println("           ");
+        //System.out.println("Available Subjects: ");
+        for (Subject subjects: subjectList){
+
+            seekSubjectById(subjects.getId()).displayStudentsCH(StudentID);
+            //System.out.println(seekSubjectById(subjects.getId()));
         }
     }
 

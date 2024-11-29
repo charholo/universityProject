@@ -304,13 +304,18 @@ public class Main {
 
                     //Subject sss = arraySubject.displayIdsSubject();
 
-                    System.out.println("SubjectID");
-                    SubjectID = leer.nextInt();
+                    System.out.println("Ids de las materias");
+
+
+
+                   // System.out.println("SubjectID");
+                   // SubjectID = leer.nextInt();
 
                     System.out.println("StudentID");
                     StudentID = leer.nextInt();
+                    arraySubject.mostrarIds(StudentID);
                    // necesito recorrer el array de subjects para hacer la busqueda materia por materia
-                    arraySubject.seekSubjectById(SubjectID).displayStudentsCH(StudentID);
+                   // arraySubject.seekSubjectById(SubjectID).displayStudentsCH(StudentID);
 
 
 
