@@ -56,22 +56,48 @@ public class Main {
             //Student arrayStudent = new Student();
             System.out.println("\n");
             System.out.println("**** Wellcome to the University **** \n");
-            System.out.println("1: Create a new student and add it to an existing class");
-            System.out.println("2: Create a new Teacher and add it to an existing class");
-            System.out.println("3: Create a new class and add an existing teacher ");
-            System.out.println("4: Print all the professors and Students with its data");
-            System.out.println("5: Print all the classes and a submenu ");
-            System.out.println("6: Seek Student by ID");
-            System.out.println("7: Seek Teacher by ID");
-            System.out.println("8: Seek Subject by ID");
-            System.out.println("9: Exit");
+            System.out.println("1: Print all the profesors with its data");
+            System.out.println("2: Print all the classes and a submenu by subject id");
+            System.out.println("3: Create a new Student and add an existing Class");
+            System.out.println("4: Create a new class and add and existing teacher & student");
+            System.out.println("5: List all the clases given student is included (search by id) ");
+            System.out.println("6: Create Teacher ");
+            System.out.println("7: Seek Subject by ID");
+            System.out.println("8: Seek Student By ID");
+            System.out.println("9: Seek Teacher ID");
+            System.out.println("10: Exit");
             System.out.print("To continue select any option: ");
             opt = leer.nextInt();
 
             switch (opt) {
 
                 case 1:
-                    System.out.println("Option 1");
+                    System.out.println("Option A");
+                    arrayTeacher.displayTeachers();
+                    break;
+
+                case 2:
+
+                    System.out.println("Option B");
+                    //arrayTeacher.displayTeachers();
+                    //arrayStudent.displayStudens();
+
+                    //point B
+                    arraySubject.displaySubject();
+                    System.out.println(" ");
+                    System.out.println("Please enter id of Subject to display information of class");
+                    showSubject = leer.nextInt();
+
+                    if (arraySubject.seekSubjectById(showSubject) == null){
+                        System.out.println("Materia no encontrada");
+                    }else{
+                        arraySubject.seekSubjectById(showSubject).displayStudents();
+                    }
+                    break;
+
+
+                case 3:
+                    System.out.println("Option C");
                     //Crear Alumno y asociarlo a una Materia
                     System.out.println("How many students do you need register?");
                     numeroAlum = leer.nextInt();
@@ -106,39 +132,8 @@ public class Main {
                     System.out.println(arrayStudent.countStudent() + " Students added successfully");
                     break;
 
-                case 2:
-                    System.out.println("Option 2");
-                    //Crear teacher
-                    System.out.println("¿Cuantos Teacher desea crear e Inscribir en el sistema?");
-                    numeroTeach = leer.nextInt();
-
-                    for (int t = 1; t <= numeroTeach; t ++){
-
-                        Random numAleatorio = new Random();
-                        int idT = numAleatorio.nextInt(200-100+1) + 200;
-                        System.out.println(idT + " Automatical ID" + " to teacher "  + t);
-                        System.out.println("Enter NAME of teacher "+ t);
-                        nameT = leer.next();
-                        System.out.println("Enter LASTNAME of teacher " + t);
-                        lsNameT = leer.next();
-                        System.out.println("Enter SALARY of teacher" + t);
-                        salaryT = leer.nextDouble();
-                        System.out.println("¿The Teacher working full time? Enter value '1' to TRUE or value '2' to FALSE " + t);
-                        isFullTime = leer.nextInt();
-
-
-                        Teacher calcSalary = new Teacher();
-                        double finalSalary = calcSalary.calcSalaryteacher(salaryT,isFullTime);
-                        arrayTeacher.createTeacher(new Teacher(idT, nameT, lsNameT, finalSalary ,isFullTime));
-                    }
-
-                    System.out.println("Numero de elementos: " + arrayTeacher.countTeacher());
-                    break;
-
-                case 3:
-                    System.out.println("Option 3");
-
-                    /////////Subject
+                case 4:
+                    System.out.println("Option D");
 
                     //Crear subject
                     System.out.println("¿Cuantas Subjects desea crear e Inscribir en el sistema?");
@@ -179,48 +174,82 @@ public class Main {
                     System.out.println("Numero de elementos: " + arraySubject.countSubject());
                     break;
 
-                case 4:
-                    System.out.println("Option 4");
-                    arrayTeacher.displayTeachers();
-                    arrayStudent.displayStudens();
-
-                    //point B
-                    arraySubject.displaySubject();
-                    System.out.println(" ");
-                    System.out.println("Please enter id of Subject to display information of class");
-                    showSubject = leer.nextInt();
-
-                    if (arraySubject.seekSubjectById(showSubject) == null){
-                        System.out.println("Materia no encontrada");
-                    }else{
-                        arraySubject.seekSubjectById(showSubject).displayStudents();
-                    }
-                    break;
-
                 case 5:
-                    System.out.println("Option 5");
-                    System.out.println("Seek Alumno ID de alumno");
-                    studentId = leer.nextInt();
-                    Student eS = arrayStudent.seekStudentById(studentId);
-                    if (eS == null){
-                        System.out.println("Id doesn't exist");
-                    }else{
-                        System.out.println("Student found: " + eS);
-
-                        System.out.println(eS.getId());
-                    }
-
-                    break;
-
-                case 6:
-                    System.out.println("Option 6");
+                    System.out.println("Option E");
                     System.out.println("Enter StudentID");
                     StudentID = leer.nextInt();
                     arraySubject.subjectByStudentId(StudentID);
                     break;
 
+
+                case 6:
+
+                    System.out.println("Option 6");
+                    //Crear teacher
+                    System.out.println("¿Cuantos Teacher desea crear e Inscribir en el sistema?");
+                    numeroTeach = leer.nextInt();
+
+                    for (int t = 1; t <= numeroTeach; t ++){
+
+                        Random numAleatorio = new Random();
+                        int idT = numAleatorio.nextInt(200-100+1) + 200;
+                        System.out.println(idT + " Automatical ID" + " to teacher "  + t);
+                        System.out.println("Enter NAME of teacher "+ t);
+                        nameT = leer.next();
+                        System.out.println("Enter LASTNAME of teacher " + t);
+                        lsNameT = leer.next();
+                        System.out.println("Enter SALARY of teacher" + t);
+                        salaryT = leer.nextDouble();
+                        System.out.println("¿The Teacher working full time? Enter value '1' to TRUE or value '2' to FALSE " + t);
+                        isFullTime = leer.nextInt();
+
+
+                        Teacher calcSalary = new Teacher();
+                        double finalSalary = calcSalary.calcSalaryteacher(salaryT,isFullTime);
+                        arrayTeacher.createTeacher(new Teacher(idT, nameT, lsNameT, finalSalary ,isFullTime));
+                    }
+
+                    System.out.println("Numero de elementos: " + arrayTeacher.countTeacher());
+                    break;
+
                 case 7:
+                    System.out.println("Option 7");
+
+                    //Busqueda ID  Subject
+
+                    arraySubject.displaySubject();
+                    System.out.println(" ");
+                    System.out.println("Seek Subject ID");
+                    subjectId = leer.nextInt();
+                    Subject sJ = arraySubject.seekSubjectById(subjectId);
+                    if (sJ == null){
+                        System.out.println("Id doesn't exist ");
+                    }else{
+                        System.out.println("Subject  found MenuCase8: " + sJ);
+                    }
+                    break;
+
+
+
+                case 8:
+                    System.out.println("Option 8");
+                    System.out.println("Seek Student by ID");
+                    studentId = leer.nextInt();
+                    Student eSs = arrayStudent.seekStudentById(studentId);
+                    if (eSs == null){
+                        System.out.println("Id doesn't exist");
+                    }else{
+                        System.out.println("Student found: " + eSs);
+
+                        }
+
+                    break;
+
+
+
+                case 9:
                     //Busqueda variable Teacher
+                    System.out.println("Option 9");
                     System.out.println("Seek Teacher ID");
 
                     teacherId = leer.nextInt();
@@ -234,21 +263,8 @@ public class Main {
                     }
                     break;
 
-                case 8:
-                    //Busqueda ID  Subject
 
-                    System.out.println("Seek Subject ID");
-                    subjectId = leer.nextInt();
-                    Subject sJ = arraySubject.seekSubjectById(subjectId);
-                    if (sJ == null){
-                        System.out.println("Id doesn't exist ");
-                    }else{
-                        System.out.println("Subject  found MenuCase8: " + sJ);
-                    }
-                    break;
-
-
-                case 9:
+                case 10:
                     System.out.println("Program Finish!!!");
                     System.exit(0);
                     break;
@@ -261,7 +277,7 @@ public class Main {
                     break;
             }
         }
-        while(opt!=9);
+        while(opt!=10);
     }
 
 }

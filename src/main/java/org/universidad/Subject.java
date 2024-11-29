@@ -6,8 +6,6 @@ import java.util.List;
 
 public class Subject {
 
-    private String studentClass;
-
     private int id;
     private String name;
     private String classRoom;
@@ -55,9 +53,9 @@ public class Subject {
         System.out.println("           ");
          for (Student student: students){
             if (student.getId() == searchById){
-                System.out.println("Id: " + id + " Subject: " + name + " With id: " + getId() + " Room: "+getClassRoom() + " Ncourse: " + getTotalCurso() + " Teacher: " + getIdTeacher() + " has students: " );
-                System.out.println(" ");
-                System.out.println(student);
+                System.out.println("Subject:");
+                System.out.println("*Subject* Id: " + id + " Name: " + name + " With id: " + getId() + " Room: "+getClassRoom() + " Ncourse: " + getTotalCurso() + " Teacher: " + getIdTeacher() + " has students: " );
+                System.out.println("*Student* " + student);
             }
         }
     }
