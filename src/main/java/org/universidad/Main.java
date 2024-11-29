@@ -6,32 +6,11 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner leer = new Scanner(System.in);
-        int numeroAlum;
-        int idTeacherAssociate;
-        int ageS;
-        int opt;
-        int idAsociateS;
-        int studentId;
-        int teacherId;
-        int subjectId;
-        int showSubject;
-        int subjStud;
-        String nameS;
-        String lsNameS;
-        int StudentID, SubjectID;
-
-        int numeroTeach;
-        //int idT;
-        String nameT;
-        String lsNameT;
+        int numeroAlum, idTeacherAssociate, ageS, opt, idAsociateS, studentId,teacherId, subjectId,showSubject;
+        String nameS, lsNameS;
+        int StudentID, numeroTeach, isFullTime, numeroSubj, totalCurso;
+        String nameT, lsNameT, nameSj="", classRoom="";
         double salaryT;
-        int isFullTime;
-
-        int numeroSubj;
-        //int idSj=0;
-        int totalCurso;
-        String nameSj="";
-        String classRoom="";
 
         Student arrayStudent = new Student();
         Teacher arrayTeacher = new Teacher();
@@ -60,42 +39,17 @@ public class Main {
         arrayStudent.createStudent(new Student (5,"Luisa","Montes",19));
         arrayStudent.createStudent(new Student (6,"Fernanda","Rios",21));
 
-
         Student student1 = new Student (1,"Charholo","Holguin",31);
 
         //Inicializar Teachers
-        arrayTeacher.createTeacher(new Teacher (10,"Felipe","Jiménez",4000,1));
+        arrayTeacher.createTeacher(new Teacher (10,"Felipe","Jiménez",4000,(1)));
         arrayTeacher.createTeacher(new Teacher (11,"Santiago","Ponce de Leon",3800,0));
-
-
-
-
-
-        //Teacher teacher1 = new Teacher(100,"Felipe","Jiménez",4000,true);
-        //Teacher teacher2 = new Teacher(101,"Santiago","Ponce de Leon",4000,false);
-
-        //Add students to class Java
-        //JavaClass.addStudent(student1);
-        //JavaClass.addStudent(student2);
-        //JavaClass.addStudent(student3);
-
-        //Add students to class Python
-        //pythonClass.addStudent(student4);
-        //pythonClass.addStudent(student5);
-        //pythonClass.addStudent(student6);
-
-
-        //Mostrar estudiantes de las clases
-        //JavaClass.displayStudents();
-        //pythonClass.displayStudents();
 
         //Mostrar teachers
         arrayTeacher.displayTeachers();
 
         //Mostrar sudents
         arrayStudent.displayStudens();
-
-
 
         /////
         do{
@@ -114,28 +68,20 @@ public class Main {
             System.out.print("To continue select any option: ");
             opt = leer.nextInt();
 
-            Subject arraySubject3 = new Subject();
-
             switch (opt) {
 
                 case 1:
                     System.out.println("Option 1");
-
-
                     //Crear Alumno y asociarlo a una Materia
                     System.out.println("How many students do you need register?");
                     numeroAlum = leer.nextInt();
 
-
                     for (int i = 1; i <= numeroAlum; i ++){
 
                         System.out.println("\n");
-                        //System.out.println("Enter ID of student " + i);
-                        //idS = leer.nextInt();
-
                         Random numAleatorioS = new Random();
                         int idS = numAleatorioS.nextInt(700-500+1) + 500;
-                        System.out.println(idS + " Automatical ID" + " to Student "  + i);
+                        System.out.println(idS + " Automatical ID " + " to Student "  + i);
                         System.out.println("Enter NAME of student "+ i);
                         nameS = leer.next();
                         System.out.println("Enter LASTNAME of student " + i);
@@ -144,10 +90,6 @@ public class Main {
                         ageS = leer.nextInt();
 
                         arrayStudent.createStudent(new Student(idS, nameS, lsNameS, ageS));
-                        //JavaClass.addStudent(new Student(idS, nameS, lsNameS, ageS));
-
-                        //Crrar bucle para asociar studiantes
-                        //System.out.println("Este es el objeto para subect para asociarle" + arraySubject.seekSubjectById(1002));
 
                         //Show all subjects
                         arraySubject.displaySubject();
@@ -159,13 +101,9 @@ public class Main {
                         System.out.println("Process to asociate was correct " + i);
                         arraySubject.seekSubjectById(idAsociateS).displayStudents();
 
-
-                       //pilas aca //pythonClass.addStudent(new Student(idS, nameS, lsNameS, ageS));
-
-
                     }
                     System.out.println(" ");
-                    System.out.println(+ arrayStudent.countStudent() + " Students added successfully");
+                    System.out.println(arrayStudent.countStudent() + " Students added successfully");
                     break;
 
                 case 2:
@@ -176,8 +114,6 @@ public class Main {
 
                     for (int t = 1; t <= numeroTeach; t ++){
 
-                        //System.out.println("Enter ID of teacher " + t);
-                        //idT = leer.nextInt();
                         Random numAleatorio = new Random();
                         int idT = numAleatorio.nextInt(200-100+1) + 200;
                         System.out.println(idT + " Automatical ID" + " to teacher "  + t);
@@ -192,7 +128,6 @@ public class Main {
 
 
                         Teacher calcSalary = new Teacher();
-
                         double finalSalary = calcSalary.calcSalaryteacher(salaryT,isFullTime);
                         arrayTeacher.createTeacher(new Teacher(idT, nameT, lsNameT, finalSalary ,isFullTime));
                     }
@@ -209,11 +144,7 @@ public class Main {
                     System.out.println("¿Cuantas Subjects desea crear e Inscribir en el sistema?");
                     numeroSubj = leer.nextInt();
 
-
                     for (int sj = 1; sj <= numeroSubj; sj ++){ //Recorrer las Materias
-
-                        //System.out.println("Enter ID of Subject " + sj);
-                        //idSj = leer.nextInt();
 
                         Random numAleatorioSb = new Random();
                         int idSj = numAleatorioSb.nextInt(900-800+1) + 800;
@@ -225,16 +156,10 @@ public class Main {
                         System.out.println("Enter Numero de TotalCursos " + sj);
                         totalCurso = leer.nextInt();
 
-
                         do {
                             System.out.println("Enter correct id teacher to asociate");
                             idTeacherAssociate = leer.nextInt();
                         }while (arrayTeacher.seekTeacherById(idTeacherAssociate) == null);
-
-
-                        //System.out.println("Enter Students Ids" + sj);
-                        //subjStud = leer.nextInt();
-
 
                         //Objeto que lleva todos los datos Subject
                         arraySubject.createSubject(new Subject(idSj, nameSj, classRoom, totalCurso,idTeacherAssociate));
@@ -252,16 +177,12 @@ public class Main {
                     System.out.println("Alumnos+CLASES: " + arraySubject2.countSubject2());
                     System.out.println(arraySubject2.getId());
                     System.out.println("Numero de elementos: " + arraySubject.countSubject());
-
-
-
                     break;
 
                 case 4:
                     System.out.println("Option 4");
                     arrayTeacher.displayTeachers();
                     arrayStudent.displayStudens();
-
 
                     //point B
                     arraySubject.displaySubject();
@@ -274,14 +195,6 @@ public class Main {
                     }else{
                         arraySubject.seekSubjectById(showSubject).displayStudents();
                     }
-
-
-
-
-
-
-
-
                     break;
 
                 case 5:
@@ -301,36 +214,21 @@ public class Main {
 
                 case 6:
                     System.out.println("Option 6");
-
-                    //Subject sss = arraySubject.displayIdsSubject();
-
-                    System.out.println("Ids de las materias");
-
-
-
-                   // System.out.println("SubjectID");
-                   // SubjectID = leer.nextInt();
-
-                    System.out.println("StudentID");
+                    System.out.println("Enter StudentID");
                     StudentID = leer.nextInt();
-                    arraySubject.mostrarIds(StudentID);
-                   // necesito recorrer el array de subjects para hacer la busqueda materia por materia
-                   // arraySubject.seekSubjectById(SubjectID).displayStudentsCH(StudentID);
-
-
-
-
-
+                    arraySubject.subjectByStudentId(StudentID);
                     break;
 
                 case 7:
                     //Busqueda variable Teacher
-
                     System.out.println("Seek Teacher ID");
+
                     teacherId = leer.nextInt();
                     Teacher tE = arrayTeacher.seekTeacherById(teacherId);
                     if (tE == null){
                         System.out.println("Id doesn't exist");
+                        Teacher tt = new Teacher();
+                        tt.listPerson();
                     }else{
                         System.out.println("Teacher found: " + tE);
                     }

@@ -1,9 +1,6 @@
 package org.universidad;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Teacher extends Person{
 
@@ -29,31 +26,15 @@ public class Teacher extends Person{
 
     ///Setters Getters
 
-    public void setTeacherId (int id){
-        this.id = id;
-    }
     public int getId(){
         return id;
-    }
-    public void setName (String name){
-        this.name = name;
     }
     public String getName(){
         return name;
     }
-
-    public void setLastName(String lastName){
-        this.lastName = lastName;
-    }
-
     public String getLastName(){
         return lastName;
     }
-
-    public void setSalary(double salary){
-        this.salary = salary;
-    }
-
     public double getSalary(){
         return salary;
     }
@@ -64,7 +45,6 @@ public class Teacher extends Person{
     public int getIsFullTime(){
         return isFullTime;
     }
-
 
 
     //Metodo de crear Teachers
@@ -90,7 +70,7 @@ public class Teacher extends Person{
         for (Teacher tech: teacherList ){
             //System.out.println("Conteooooooo");
             if (tech.getId() == idTeacher) {
-                System.out.println("Teacher found");
+                //System.out.println("Teacher found");
                 teacherFound = tech;
                 return teacherFound;
             }
@@ -120,7 +100,7 @@ public class Teacher extends Person{
 
     @Override
     public void listPerson(){
-        //System.out.println("Muestra el Teacher : \n"  + " Cod: " + getId() + "\n Name: "+ getName() + "\n LastName: " + getLastName() + "\n $" +salary + "\n fullTime: " + isFullTime);
+        System.out.println("Muestra el Teacher : \n"  + " Cod: " + getId() + "\n Name: "+ getName() + "\n LastName: " + getLastName() + "\n $" +salary + "\n fullTime: " + isFullTime);
     }
 
 }

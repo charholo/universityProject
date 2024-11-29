@@ -13,22 +13,14 @@ public class Subject {
     private String classRoom;
     private int idTeacher;
     private List<Student> students;
-
-
     private ArrayList<Subject> subjectList;
     private ArrayList<Subject> classStudentList;
-    private ArrayList<Teacher> classTeacherList;
-
     private int totalCurso;
-
-
 
 
     //Constructores
     public Subject (){
         this.students = new ArrayList<>();
-
-
         this.subjectList = new ArrayList<>();
         this.classStudentList = new ArrayList<>();
 
@@ -42,24 +34,14 @@ public class Subject {
         this.totalCurso = totalCurso;
         this.idTeacher = idTeacher;
         this.students = new ArrayList<>();
-
-
         this.subjectList = new ArrayList<>();
-
-
-
     }
-
-    ///Setters Getters
 
     //Add student to the class
     public void addStudent(Student student){
         students.add(student);
         System.out.println("Adding: " + student.getName() + " to class: " + name);
     }
-
-
-
     public void displayStudents(){
         System.out.println("           ");
         System.out.println("Subject: " + name + " With id: " + getId() + " Room: "+getClassRoom() + " Ncourse: " + getTotalCurso() + " Teacher: " + getIdTeacher() + " has students: " );
@@ -68,13 +50,12 @@ public class Subject {
         }
     }
 
-
     //////
     public void displayStudentsCH(int searchById){
         System.out.println("           ");
          for (Student student: students){
             if (student.getId() == searchById){
-                System.out.println("Id: " + id + "Subject: " + name + " With id: " + getId() + " Room: "+getClassRoom() + " Ncourse: " + getTotalCurso() + " Teacher: " + getIdTeacher() + " has students: " );
+                System.out.println("Id: " + id + " Subject: " + name + " With id: " + getId() + " Room: "+getClassRoom() + " Ncourse: " + getTotalCurso() + " Teacher: " + getIdTeacher() + " has students: " );
                 System.out.println(" ");
                 System.out.println(student);
             }
@@ -91,37 +72,17 @@ public class Subject {
     public int getTotalCurso(){
         return totalCurso;
     }
-
-
-    public void setId (int id){
-        this.id = id;
-    }
-
     public int getId(){
         return id;
     }
     public int getIdTeacher(){
         return idTeacher;
     }
-
-    public void setName (String name){
-        this.name = name;
-    }
     public String getName(){
         return name;
     }
-
-    public void setClassRoom(String classRoom){
-        this.classRoom = classRoom;
-    }
-
     public String getClassRoom(){
         return classRoom;
-    }
-
-    public ArrayList<Subject> getArrayRoom(){
-        System.out.println("Charlews ---" + classStudentList);
-        return classStudentList;
     }
 
     @Override
@@ -131,7 +92,6 @@ public class Subject {
                 ", ClassRoom=" + getClassRoom() +
                 ", total cursos=" + getTotalCurso() +
                 ", Id Teacher=" + getIdTeacher();
-
                 for (Subject curso : this.subjectList){
                     s += curso.toString();
                 }
@@ -154,22 +114,6 @@ public class Subject {
         return classStudentList.size();
     }
 
-    //Metodo de Agregar estudiantes a una materia
-    public void addStudentsToSubject (Subject csl){
-        this.classStudentList.add(csl);
-    }
-
-    public String mostro (){
-        String msn = "";
-        for (int i = 0; i < classStudentList.size();i++){
-            System.out.println(classStudentList.get(i));
-            msn = "EncontroooCH";
-        }
-
-        System.out. println(msn);
-        return msn;
-    }
-
     public void displaySubject(){
         System.out.println("           ");
         //System.out.println("Available Subjects: ");
@@ -177,16 +121,12 @@ public class Subject {
             System.out.println(subjects);
         }
     }
-    public void mostrarIds(int StudentID){
+    public void subjectByStudentId(int StudentID){
         System.out.println("           ");
-        //System.out.println("Available Subjects: ");
         for (Subject subjects: subjectList){
-
             seekSubjectById(subjects.getId()).displayStudentsCH(StudentID);
-            //System.out.println(seekSubjectById(subjects.getId()));
         }
     }
-
 
     //Metodo buscar subject
     public Subject seekSubjectById(int idSSubject){
